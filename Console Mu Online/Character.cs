@@ -8,6 +8,8 @@ namespace Console_Mu_Online
 {
     class Character
     {
+        public int zulies { get; set; }
+        public string nickname { get; set; }
         public string skillOne { get; set; }
         public string skillTwo { get; set; }
         public string skillThree { get; set; }
@@ -52,11 +54,10 @@ namespace Console_Mu_Online
                 skillThree = "Multi Shot";
             }
         }
-        public void Setup()
+        public void Setup(string input)
         {
             if (classJob != "Archer" && classJob != "Knight" && classJob != "Muse")
             {
-                string input = string.Empty;
 
                 while (input != "Archer" && input != "Knight" && input != "Muse")
                 {
@@ -70,27 +71,27 @@ namespace Console_Mu_Online
 
             if (classJob == "Knight")
             {
-                maximumHealth = 2000;
-                maximumMana = 100;
-                health = 2000;
-                mana = 100;                
-                damage = 100;
+                maximumHealth = 3000;
+                maximumMana = 150;
+                health = 3000;
+                mana = 150;                
+                damage = 150;
                 shield = "Basic Shield";
                 weapon = "Basic Sword";
             }
             else if (classJob == "Archer")
             {
-                maximumHealth = 1500;
-                maximumMana = 150;
+                maximumHealth = 2500;
+                maximumMana = 200;
                 health = 1500;
-                mana = 150;
+                mana = 200;
                 damage = 200;
                 weapon = "Basic Bow";
             }
             else if (classJob == "Muse")
             {
-                maximumHealth = 1000;
-                maximumMana = 250;
+                maximumHealth = 2000;
+                maximumMana = 300;
                 health = 1000;
                 mana = 250;
                 damage = 150;
@@ -106,17 +107,18 @@ namespace Console_Mu_Online
             map = "Junon";
             level = 1;
             inventory = new List<string>();
+            zulies = 50;
         }
 
         public void Inventory(string item)
         {
-            if (inventory.Count <= 10)
+            if (inventory.Count <= 500)
             {
                 inventory.Add(item);            
             }
             else
             {
-                Console.WriteLine("Not enough space in the inventory, do you want to throw an item?");
+                Console.Write("\nNot enough space in the inventory, do you want to throw an item? - ");
                 string input = Console.ReadLine();
 
                 if (input == "Yes")
@@ -133,6 +135,10 @@ namespace Console_Mu_Online
                     {
                         Console.WriteLine($"{throwItem} does not exists in the inventory!");
                     }
+                }
+                else
+                {
+                    return;
                 }
             }
         }
