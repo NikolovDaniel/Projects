@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Console_Mu_Online</RootNamespace>
+    <StartupObject>Console_Mu_Online.StartUp</StartupObject>
   </PropertyGroup>
 
 </Project>

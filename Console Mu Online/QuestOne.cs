@@ -14,7 +14,7 @@ namespace Console_Mu_Online
 
         public void Setup()
         {
-            status = "Completed";
+            status = "Not active";
             countRats = 0;
             countBears = 0;
         }

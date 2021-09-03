@@ -83,7 +83,7 @@ namespace Console_Mu_Online
             {
                 maximumHealth = 2500;
                 maximumMana = 200;
-                health = 1500;
+                health = 2500;
                 mana = 200;
                 damage = 200;
                 weapon = "Basic Bow";
@@ -92,8 +92,8 @@ namespace Console_Mu_Online
             {
                 maximumHealth = 2000;
                 maximumMana = 300;
-                health = 1000;
-                mana = 250;
+                health = 2000;
+                mana = 300;
                 damage = 150;
                 weapon = "Basic Staff";
             }
