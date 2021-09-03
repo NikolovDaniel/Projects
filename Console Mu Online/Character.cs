@@ -19,10 +19,15 @@ namespace Console_Mu_Online
         public int health { get; set; }
         public int mana { get; set; }
         public int experience { get; set; }
+        public int maxExperience { get; set; }
         public int damage { get; set; }
         public string map { get; set; }
         public int level { get; set; }
         public List<string> inventory { get; set; }
+        public List<string> items { get; set; }
+        public Dictionary<string, int> potions { get; set; }
+        public Dictionary<string, int> mats { get; set; }
+        public Dictionary<string, int> scrolls { get; set; }
         public string armor { get; set; }
         public string gloves { get; set; }
         public string helmet { get; set; }
@@ -103,10 +108,15 @@ namespace Console_Mu_Online
             boots = "Basic Boots";
             necklace = "Basic Necklace";
             ring = "Basic Ring";
-            experience = 0;            
+            experience = 0;
+            maxExperience = 100;
             map = "Junon";
             level = 1;
             inventory = new List<string>();
+            items = new List<string>();
+            potions = new Dictionary<string, int>();
+            mats = new Dictionary<string, int>();
+            scrolls = new Dictionary<string, int>();
             zulies = 50;
         }
 
@@ -114,7 +124,53 @@ namespace Console_Mu_Online
         {
             if (inventory.Count <= 500)
             {
-                inventory.Add(item);            
+                inventory.Add(item);
+                bool isPotion = item.Contains("Mana") || item.Contains("Health");
+                bool isItem = item.Contains("Helmet") || item.Contains("Armor") ||
+                    item.Contains("Gloves") || item.Contains("Boots") ||
+                    item.Contains("Ring") || item.Contains("Necklace") ||
+                    item.Contains("Bow") || item.Contains("Staff") ||
+                    item.Contains("Sword") || item.Contains("Shield");
+                bool isScroll = item.Contains("Scroll");
+
+                if (isPotion)
+                {
+                    if (potions.ContainsKey(item))
+                    {
+                        potions[item]++;
+                    }
+                    else
+                    {
+                        potions.Add(item, 1);
+                    }
+                }
+                else if (isItem)
+                {
+                    items.Add(item);
+                }
+                else if (isScroll)
+                {
+                    if (scrolls.ContainsKey(item))
+                    {
+                        scrolls[item]++;
+                    }
+                    else
+                    {
+                        scrolls.Add(item, 1);
+                    }
+                }
+                else
+                {
+                    if (mats.ContainsKey(item))
+                    {
+                        mats[item]++;
+                    }
+                    else
+                    {
+                        mats.Add(item, 1);
+                    }
+                }
+
             }
             else
             {
