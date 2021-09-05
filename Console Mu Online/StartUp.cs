@@ -244,6 +244,8 @@ namespace Console_Mu_Online
                 else
                 {
                     Console.WriteLine("\nYou do not have enough Zulies, please try again!");
+                    Console.WriteLine("Press a key to continue...");
+                    Console.ReadKey();
                 }
             }
             else if (inp == "Mana Potion")
@@ -265,11 +267,15 @@ namespace Console_Mu_Online
                 else
                 {
                     Console.WriteLine("\nYou do not have enough Zulies, please try again!");
+                    Console.WriteLine("Press a key to continue...");
+                    Console.ReadKey();
                 }
             }
             else
             {
                 Console.WriteLine("\nInvalid item, please try again!");
+                Console.WriteLine("Press a key to continue...");
+                Console.ReadKey();
             }
         }
         static void Dungeon(Character character, QuestFour questFour, Monster monster)
@@ -990,13 +996,15 @@ namespace Console_Mu_Online
                 {
                     Console.WriteLine($"You have restored {character.maximumHealth - character.health}HP!");
                     character.health = character.maximumHealth;
+                    Console.WriteLine("Press a key to continue...");
+                    Console.ReadKey();
                 }
 
                 character.inventory.Remove("Health Potion");
-                character.potions[cmd]--;
-                if (character.potions[cmd] == 0)
+                character.potions["Health Potion"]--;
+                if (character.potions["Health Potion"] == 0)
                 {
-                    character.potions.Remove(cmd);
+                    character.potions.Remove("Health Potion");
                 }
             }
             else if (cmd.Contains("Mana") && character.inventory.Contains("Mana Potion"))
@@ -1011,13 +1019,15 @@ namespace Console_Mu_Online
                 {
                     Console.WriteLine($"You have restored {character.maximumMana - character.mana}MP!");
                     character.mana = character.maximumMana;
+                    Console.WriteLine("Press a key to continue...");
+                    Console.ReadKey();
                 }
 
                 character.inventory.Remove("Mana Potion");
-                character.potions[cmd]--;
-                if (character.potions[cmd] == 0)
+                character.potions["Mana Potion"]--;
+                if (character.potions["Mana Potion"] == 0)
                 {
-                    character.potions.Remove(cmd);
+                    character.potions.Remove("Mana Potion");
                 }
             }
             else
@@ -1262,6 +1272,12 @@ namespace Console_Mu_Online
                 {
                     Console.WriteLine($"You do not have {item} in your inventory!");
                 }
+            }
+            else if (toEquip.ToLower() == "exit")
+            {
+                Console.WriteLine("You have exited the inventory!");
+                Console.WriteLine("Press a key to continue...");
+                Console.ReadKey();
             }
             else
             {
