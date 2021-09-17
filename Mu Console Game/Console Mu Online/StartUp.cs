@@ -899,7 +899,7 @@ namespace Console_Mu_Online
         {
             Console.WriteLine("\nCurrent character information:");
             Console.WriteLine($"    - Health - {character.health}/{character.maximumHealth} Health");
-            Console.WriteLine($"    - Mana - {character.mana}/{character.mana} Mana");
+            Console.WriteLine($"    - Mana - {character.mana}/{character.maximumMana} Mana");
             Console.WriteLine($"    - Experience - {character.experience}/{character.maxExperience} Experience");
             Console.WriteLine($"    - Damage - {character.damage} Damage");
             Console.WriteLine($"    - Zulies - {character.zulies} Zulies");
@@ -1431,7 +1431,7 @@ namespace Console_Mu_Online
 
             if (monster.health <= 0)
             {
-                Console.WriteLine($"You have killed {monster.monsterName} with {cmd}!");
+                Console.WriteLine($"\nYou have killed {monster.monsterName} with {cmd}!");
                 return;
             }
             else
@@ -1585,7 +1585,7 @@ namespace Console_Mu_Online
             Console.WriteLine($"\nYou have killed {monster.monsterName} for {monster.experience}EXP and looted {randomItem}!");
             Console.WriteLine($"Your current Health, Mana and Experience are: ");
             Console.WriteLine($"    - {character.health}/{character.maximumHealth} Health");
-            Console.WriteLine($"    - {character.mana}/{character.mana} Mana");
+            Console.WriteLine($"    - {character.mana}/{character.maximumMana} Mana");
             Console.WriteLine($"    - {character.experience}/{character.maxExperience} Experience");
             Console.Write("Press a key to continue...");
             Console.ReadKey();
